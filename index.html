@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Odkryj odzież sportową i narciarską. Dynamiczne filtrowanie, interaktywna galeria i produkty ładowane na bieżąco.">
+    <link rel="icon" href="img/loge-default.svg" type="image/png">
+    <title>Forma'Sint</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="wrapper">
+            <div class="logo-container">
+                <a href="#" class="logo logo-desktop">
+                    <!-- Logo bez tła -->
+                    <img src="img/loge-default.svg" alt="" class="logo-default">
+
+                    <!-- Logo na hover (z czarnym tłem) -->
+                    <img src="img/logo-hover.svg" alt="" class="logo-hover">
+                    FORMA'SINT.
+                </a>
+                <a href="https://idomods.pl" target="_blank" rel="noopener noreferrer" class="desktop-only">IDOMODS
+                    &lt;/&gt;</a>
+
+
+            </div>
+            <nav class="desktop-menu">
+                <a href="#home">HOME</a>
+                <a href="#featured-products">FEATURED PRODUCTS</a>
+                <a href="#product-listing">PRODUCT LISTING</a>
+            </nav>
+            <div class="menu-icons">
+                <div class="avatar">
+                    <!-- Avatar SVG -->
+                    <img src="img/avatar.svg" alt="">
+                    FRONTEND DEVELOPER
+                </div>
+                <div class="menu-toggle" id="menuToggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M3.5 17.6345V16.1348H20.5V17.6345H3.5ZM3.5 12.75V11.25H20.5V12.75H3.5ZM3.5 7.86526V6.36551H20.5V7.86526H3.5Z"
+                            fill="#1D1D1D" />
+                    </svg>
+                    MENU
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="logo-container">
+                <a href="#" class="logo logo-mobile">
+                    <img src="img/loge-default.svg" alt="">
+                </a>
+            </div>
+            <div class="menu-close" id="menuClose">
+                <img src="img/close-menu.svg" alt="">
+                CLOSE
+            </div>
+        </div>
+        <a href="#home">HOME</a>
+        <a href="#featured-products">FEATURED PRODUCTS</a>
+        <a href="#product-listing">PRODUCT LISTING</a>
+    </nav>
+
+    <main>
+        <!-- Sekcja hero -->
+        <section id="home" class="hero-section">
+            <div class="wrapper hero-content">
+                <div class="hero-logo">
+                    <picture>
+                        <!-- Wersja mobilna -->
+                        <source srcset="img/hero-logo-mobile.svg" media="(max-width: 768px)">
+                        <!-- Wersja desktopowa -->
+                        <img src="img/hero-logo-desktop.svg" alt="Hero logo" loading="lazy">
+                    </picture>
+                </div>
+                <div class="hero-image">
+                    <picture>
+                        <source srcset="img/hero-image-mobile.webp" type="image/webp" media="(max-width: 767px)" />
+
+                        <img src="img/hero-image-pc.webp"
+                            alt="Wspinacz wspinający się po lodowej ścianie w pomarańczowej kurtce" loading="lazy" />
+                    </picture>
+                </div>
+            </div>
+        </section>
+
+        <section id="featured-products" class="featured-products-section">
+            <div class="wrapper">
+
+                <div class="section-header">
+                    <span>FEATURED PRODUCTS</span>
+                    <h1>Browse featured</h1>
+                </div>
+
+                <div class="swiper featured-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- SLIDE -->
+                        <div class="swiper-slide product-card">
+                            <div class="image-box">
+                                <button class="heart-icon" data-product-id="1">
+                                    <img src="img/heart-default.svg" alt="" class="heart-default">
+                                    <!-- Filled heart -->
+                                    <img src="img/heart-filled.svg" alt="" class="heart-filled hidden">
+                                </button>
+                                <div class="bestseller">
+                                    <img src="img/bestseller.svg" alt="Napis 'bestseller'">
+
+                                </div>
+                                <img src="img/product1.webp" alt="Granatowa kurtka wspinaczkowa" loading="lazy" />
+                            </div>
+                            <div class="product-info">
+                                <p class="product-name">Dark blue alpine climbing jacket</p>
+                                <p class="product-price">€300,00 EUR</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide product-card">
+                            <div class="image-box">
+                                <button class="heart-icon" data-product-id="2">
+                                    <img src="img/heart-default.svg" alt="" class="heart-default">
+                                    <!-- Filled heart -->
+                                    <img src="img/heart-filled.svg" alt="" class="heart-filled hidden">
+                                </button>
+                                <div class="limited-edition">
+                                    <img src="img/limited-edition.svg" alt="Napis 'limited edition'">
+                                </div>
+                                <img src="img/product2.webp" alt="Pomarańczowy kask wspinaczkowy" loading="lazy" />
+                            </div>
+                            <div class="product-info">
+                                <p class="product-name">Orange helmet for alpine TOUNDRA</p>
+                                <p class="product-price">€300,00 EUR</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide product-card">
+                            <div class="image-box">
+                                <button class="heart-icon" data-product-id="3">
+                                    <img src="img/heart-default.svg" alt="" class="heart-default">
+                                    <!-- Filled heart -->
+                                    <img src="img/heart-filled.svg" alt="" class="heart-filled hidden">
+                                </button>
+                                <img src="img/product3.webp" alt="Granatowa kurtka wspinaczkowa" loading="lazy" />
+                            </div>
+                            <div class="product-info">
+                                <p class="product-name">Grey alpine climbing jacket</p>
+                                <p class="product-price">€300,00 EUR</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide product-card">
+                            <div class="image-box">
+                                <button class="heart-icon" data-product-id="4">
+                                    <img src="img/heart-default.svg" alt="" class="heart-default">
+
+                                    <!-- Filled heart -->
+                                    <img src="img/heart-filled.svg" alt="" class="heart-filled hidden">
+                                </button>
+                                <div class="bestseller">
+                                    <img src="img/bestseller.svg" alt="">
+                                </div>
+                                <img src="img/product4.webp" alt="Granatowa kurtka wspinaczkowa" loading="lazy" />
+                            </div>
+                            <div class="product-info">
+                                <p class="product-name">Grey alpine climbing jacket</p>
+                                <p class="product-price">€300,00 EUR</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="swiper-button-next custom-arrow">
+                        <img src="img/swiper-button-next.svg" alt="Przycisk zmieniający produkty">
+
+                    </div>
+
+                    <!-- Pagination (szary pasek) -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <section id="product-listing" class="product-section">
+            <div class="wrapper">
+
+                <!-- Dropdown -->
+                <div class="dropdown-wrapper">
+                    <span class="dropdown-label">NUMBER OF PRODUCTS PER PAGE</span>
+                    <div class="dropdown">
+                        <div id="dropdownToggle" class="dropdown-toggle">
+                            14
+                            <svg width="12" height="8" viewBox="0 0 12 8" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M5.69976 5.24844L10.2998 0.648437L11.3535 1.70219L5.69976 7.35594L0.0460147 1.70219L1.09976 0.648437L5.69976 5.24844Z"
+                                    fill="#1D1D1D" />
+                            </svg>
+                        </div>
+                        <ul id="dropdownMenu" class="dropdown-menu">
+                            <li>14</li>
+                            <li>24</li>
+                            <li>36</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Produkty -->
+                <div id="productContainer" class="product-container">
+
+                </div>
+            </div>
+
+            <div id="popupOverlay" class="popup-overlay"></div>
+            <div id="popup" class="popup">
+                <div class="popup-header">
+                    <span class="popup-title">ID: </span>
+                    <span class="popup-close">CLOSE</span>
+                </div>
+                <div class="popup-content">
+                    <img src="" alt="Product" />
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/srcipts.js"></script>
+</body>
+
+</html>
