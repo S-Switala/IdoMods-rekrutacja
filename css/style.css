@@ -437,7 +437,12 @@ SEKCJA PRODUKTÓW
     padding: 6px 8px;
     border: 1px solid transparent;
     border-radius: 6px;
-    transition: border-color 0.3s;
+    transition: border-color transform 0.3s;
+}
+
+.rotate {
+	transform: rotate(180deg);
+    transition: transform 0.3s ease;
 }
 
 .dropdown-toggle:focus {

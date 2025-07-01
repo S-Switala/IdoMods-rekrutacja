@@ -50,26 +50,25 @@ window.addEventListener('scroll', () => {
 //Scroll window
 
 menuLinks.forEach(link => {
-    link.addEventListener('click', event => {
-        event.preventDefault()
+	link.addEventListener('click', event => {
+		event.preventDefault()
 
-        const targetId = link.getAttribute('href').substring(1)
-        const targetSection = document.getElementById(targetId)
+		const targetId = link.getAttribute('href').substring(1)
+		const targetSection = document.getElementById(targetId)
 
-        closeMenu()
+		closeMenu()
 
-        // Czekamy aż menu się schowa
-        setTimeout(() => {
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                })
-            }
-        }, 300) // Dopasuj do czasu animacji menu
-    })
+		// Czekamy aż menu się schowa
+		setTimeout(() => {
+			if (targetSection) {
+				targetSection.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start',
+				})
+			}
+		}, 300) // Dopasuj do czasu animacji menu
+	})
 })
-
 
 // =======================
 // SERDUSZKA W SWIPERZE
@@ -111,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		spaceBetween: 24,
 		pagination: { el: '.swiper-pagination', type: 'progressbar', clickable: true },
 		navigation: { nextEl: '.swiper-button-next' },
-		breakpoints: { 0: { slidesPerView: 1 }, 768: { slidesPerView: 4 } }
+		breakpoints: { 0: { slidesPerView: 1 }, 768: { slidesPerView: 4 } },
 	})
 
 	swiper.on('slideChange', () => updateHearts())
@@ -200,14 +199,16 @@ window.addEventListener('scroll', () => {
 // Dropdown toggle
 dropdownToggle.addEventListener('click', () => {
 	dropdownMenu.classList.toggle('show')
+	dropdownToggle.querySelector('img').classList.toggle('rotate')
 })
 
 // Dropdown option change
 dropdownMenu.querySelectorAll('li').forEach(option => {
 	option.addEventListener('click', () => {
 		pageSize = parseInt(option.textContent.trim())
-		dropdownToggle.textContent = option.textContent.trim()
+		document.getElementById('dropdownValue').textContent = option.textContent.trim()
 		dropdownMenu.classList.remove('show')
+		dropdownToggle.querySelector('img').classList.remove('rotate')
 
 		productContainer.innerHTML = ''
 		currentPage = 1
