@@ -29,12 +29,14 @@ function closeMenu() {
 // Active link on scroll
 window.addEventListener('scroll', () => {
 	let current = ''
+	const scrollPosition = window.scrollY
+	const offset = 88
 
 	sections.forEach(section => {
 		const sectionTop = section.offsetTop
-		const sectionHeight = section.clientHeight
+		const sectionHeight = section.offsetHeight
 
-		if (pageYOffset >= sectionTop - sectionHeight / 3) {
+		if (scrollPosition + offset >= sectionTop && scrollPosition + offset < sectionTop + sectionHeight) {
 			current = section.getAttribute('id')
 		}
 	})
@@ -149,6 +151,18 @@ const bannerHTML = `
         </div>
     </div>
 `
+function showSkeletons(count) {
+	const skeletons = Array.from({ length: count }, () => {
+		const div = document.createElement('div')
+		div.classList.add('product-skeleton', 'skeleton')
+		return div
+	})
+	skeletons.forEach(skel => productContainer.appendChild(skel))
+}
+
+function removeSkeletons() {
+	document.querySelectorAll('.product-skeleton').forEach(el => el.remove())
+}
 
 function getBannerIndex() {
 	return window.innerWidth > 768 ? 5 : 4
@@ -156,9 +170,13 @@ function getBannerIndex() {
 
 async function loadProducts() {
 	try {
+		showSkeletons(pageSize)
+
 		const response = await fetch(`${apiUrl}${currentPage}&pageSize=${pageSize}`)
 		const data = await response.json()
 		const products = data.data
+
+		removeSkeletons()
 
 		const bannerIndex = getBannerIndex()
 
@@ -168,9 +186,9 @@ async function loadProducts() {
 			const productCard = document.createElement('div')
 			productCard.classList.add('product-card')
 			productCard.innerHTML = `
-                <span class="product-id">ID: ${product.id}</span>
-                <img src="${product.image}" alt="${product.text}" loading="lazy">
-            `
+				<span class="product-id">ID: ${product.id}</span>
+				<img src="${product.image}" alt="${product.text}" loading="lazy">
+			`
 			productContainer.appendChild(productCard)
 
 			if (!bannerInserted && productCount === bannerIndex) {
@@ -183,6 +201,7 @@ async function loadProducts() {
 		loading = false
 	} catch (error) {
 		console.error('Błąd ładowania produktów:', error)
+		removeSkeletons()
 		loading = false
 	}
 }
